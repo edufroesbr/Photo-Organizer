@@ -41,7 +41,9 @@ class TestGalleryGenerator(unittest.TestCase):
         # Verify index.html content
         with open(self.output_dir / "index.html", "r", encoding="utf-8") as f:
             content = f.read()
-            self.assertIn("Organized Photos", content)
+            # Check used password logic
+            # self.assertIn("function sha256(message)", content) # Removed in favor of simple check
+            self.assertIn('const CORRECT_PASSWORD = "admin";', content)
             self.assertIn("test.jpg", content)
             
         # Verify thumbnail creation

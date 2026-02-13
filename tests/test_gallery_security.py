@@ -38,12 +38,11 @@ class TestGallerySecurity(unittest.TestCase):
             self.assertIn('id="login-overlay"', content)
             self.assertIn('id="password-input"', content)
             
-            # Check for JS logic
-            self.assertIn('async function sha256(message)', content)
-            self.assertIn('const CORRECT_HASH', content)
+            # Check for simple password logic
+            self.assertIn('const CORRECT_PASSWORD = "admin";', content)
+            self.assertNotIn("crypto.subtle", content)
             
-            # Check default hash (admin) exists
-            self.assertIn('8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', content)
+
 
 if __name__ == '__main__':
     unittest.main()

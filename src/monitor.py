@@ -51,8 +51,26 @@ class ImageHandler(FileSystemEventHandler):
         except Exception as e:
             logging.error(f"Error processing {file_path}: {e}")
 
+    def process_existing_files(self, source_dir):
+        logging.info(f"Processing existing files in {source_dir}...")
+        source_path = Path(source_dir)
+        if not source_path.exists():
+            logging.warning(f"Source directory {source_dir} does not exist. Skipping existing file processing.")
+            return
+
+        count = 0
+        for item in source_path.iterdir():
+            if item.is_file() and item.suffix.lower() in self.supported_extensions:
+                self.process_new_file(item)
+                count += 1
+        logging.info(f"Finished processing {count} existing files.")
+
 def start_monitoring(source_dir, destination_root, quarantine_dir):
     event_handler = ImageHandler(destination_root, quarantine_dir)
+    
+    # Process existing files first
+    event_handler.process_existing_files(source_dir)
+    
     observer = Observer()
     observer.schedule(event_handler, source_dir, recursive=False)
     observer.start()
@@ -80,4 +98,8 @@ if __name__ == "__main__":
                         format='%(asctime)s - %(message)s',
                         datefmt='%Y-%m-%d %H:%M:%S')
                         
-    start_monitoring(source, dest, quar)
+    try:
+        start_monitoring(source, dest, quar)
+    except Exception as e:
+        logging.critical(f"Critical error: {e}", exc_info=True)
+        sys.exit(1)
