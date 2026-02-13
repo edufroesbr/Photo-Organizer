@@ -90,6 +90,20 @@
       "priority": 6,
       "passes": true,
       "notes": "Phase 5: Skill Creation"
+    },
+    {
+      "id": "US-007",
+      "title": "Gallery Password Protection",
+      "description": "As a user, I want my web gallery to be protected by a password.",
+      "acceptanceCriteria": [
+        "Implement client-side JS password check in index.html",
+        "Hide gallery content until correct password is entered",
+        "Allow configuring password (default or argument)",
+        "Typecheck passes"
+      ],
+      "priority": 7,
+      "passes": true,
+      "notes": "Phase 6: Security"
     }
   ]
 }

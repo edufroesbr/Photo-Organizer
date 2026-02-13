@@ -14,6 +14,7 @@ This skill provides a suite of tools to manage and organize photo collections.
 2.  **Deduplication**: Identifies duplicate files using MD5 hashing and moves them to a `Quarantine` folder.
 3.  **Monitoring**: Watches a directory for new files and automatically organizes them.
 4.  **Gallery Generation**: Creates a static HTML gallery with thumbnails for optimized viewing.
+5.  **Password Protection**: Secures the generated gallery with a client-side password overlay (SHA-256).
 
 ## Usage
 

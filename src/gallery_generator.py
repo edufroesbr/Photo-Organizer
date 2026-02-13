@@ -160,6 +160,49 @@ class GalleryGenerator:
 """
         html_content += """
     </div>
+    
+    <!-- Password Protection Overlay -->
+    <div id="login-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #222; display: flex; justify-content: center; align-items: center; z-index: 1000;">
+        <div style="background: #333; padding: 2rem; border-radius: 8px; text-align: center;">
+            <h2 style="margin-top: 0;">Restricted Access</h2>
+            <p>Please enter the password to view the gallery.</p>
+            <input type="password" id="password-input" placeholder="Password" style="padding: 0.5rem; border-radius: 4px; border: none; margin-bottom: 1rem; width: 100%;">
+            <br>
+            <button onclick="checkPassword()" style="padding: 0.5rem 1rem; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">Enter</button>
+            <p id="error-msg" style="color: #ff6b6b; display: none; margin-top: 1rem;">Incorrect password</p>
+        </div>
+    </div>
+
+    <script>
+        // Simple client-side check. 
+        // In a real app, use server-side auth. This is just to deter casual access vs bots/snoops.
+        // Default password is 'admin' if not changed.
+        const CORRECT_HASH = "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918"; // SHA-256 for 'admin'
+        
+        async function sha256(message) {
+            const msgBuffer = new TextEncoder().encode(message);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            return hashHex;
+        }
+
+        async function checkPassword() {
+            const input = document.getElementById('password-input').value;
+            const hash = await sha256(input);
+            if (hash === CORRECT_HASH) {
+                document.getElementById('login-overlay').style.display = 'none';
+            } else {
+                document.getElementById('error-msg').style.display = 'block';
+            }
+        }
+        
+        document.getElementById('password-input').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+    </script>
 </body>
 </html>
 """
