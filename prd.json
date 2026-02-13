@@ -1,0 +1,95 @@
+{
+  "project": "Organizador de Fotos Didáticas",
+  "branchName": "ralph/foto-organizer-v2",
+  "description": "Sistema de Gestão de Ativos Digitais com Classificação Automatizada de Imagens Didáticas",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "Setup & EXIF Extraction POC",
+      "description": "As a developer, I want to extract EXIF dates from images to establish chronological order.",
+      "acceptanceCriteria": [
+        "Create project structure and virtual environment",
+        "Implement script to read EXIF 'DateTimeOriginal' from JPG/PNG",
+        "Fallback to 'DateTime' or file modification time if EXIF missing",
+        "Unit test for date extraction methodology",
+        "Typecheck passes"
+      ],
+      "priority": 1,
+      "passes": true,
+      "notes": "Phase 1: Proof of Concept"
+    },
+    {
+      "id": "US-002",
+      "title": "Basic File Organization Logic",
+      "description": "As a user, I want my photos moved into a Year/Month/Day folder structure.",
+      "acceptanceCriteria": [
+        "Implement file mover logic using shutil",
+        "Create target directory structure dynamically (YYYY/MM/DD)",
+        "Handle file naming collisions (e.g., append counter)",
+        "Process a test batch of images successfully",
+        "Typecheck passes"
+      ],
+      "priority": 2,
+      "passes": false,
+      "notes": "Phase 1: Core Logic"
+    },
+    {
+      "id": "US-003",
+      "title": "Deduplication System (MD5)",
+      "description": "As a user, I want to prevent duplicate photos from cluttering my storage.",
+      "acceptanceCriteria": [
+        "Implement MD5 hashing for file content",
+        "Integrate size-based pre-filtering for performance",
+        "Move identified duplicates to a 'Quarantine' folder",
+        "Verify deduplication on test dataset",
+        "Typecheck passes"
+      ],
+      "priority": 3,
+      "passes": false,
+      "notes": "Phase 2: Deduplication"
+    },
+    {
+      "id": "US-004",
+      "title": "Watchdog Monitoring Service",
+      "description": "As a user, I want new photos to be organized automatically when added to the folder.",
+      "acceptanceCriteria": [
+        "Implement 'watchdog' library observer",
+        "Trigger organization logic on 'on_created' events",
+        "Run as a long-running process/service",
+        "Typecheck passes"
+      ],
+      "priority": 4,
+      "passes": false,
+      "notes": "Phase 3: Automation"
+    },
+    {
+      "id": "US-005",
+      "title": "Static Web Gallery Generation",
+      "description": "As a user, I want a web gallery to view my organized photos.",
+      "acceptanceCriteria": [
+        "Generate HTML/static gallery from organized folders",
+        "Include thumbnails and basic navigation",
+        "Ensure gallery is responsive (mobile-friendly)",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
+      ],
+      "priority": 5,
+      "passes": false,
+      "notes": "Phase 4: Interface"
+    },
+    {
+      "id": "US-006",
+      "title": "Antigravity Skill Encapsulation",
+      "description": "As a developer, I want to reuse this logic as an Antigravity Skill.",
+      "acceptanceCriteria": [
+        "Create SKILL.md with semantic triggering instructions",
+        "Package scripts into 'skills/organizer' directory",
+        "Document usage instructions",
+        "Typecheck passes"
+      ],
+      "priority": 6,
+      "passes": false,
+      "notes": "Phase 5: Skill Creation"
+    }
+  ]
+}
