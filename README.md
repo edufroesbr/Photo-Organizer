@@ -113,6 +113,6 @@ Se este projeto foi útil para você, considere fazer uma doação para apoiar o
 
 **Bitcoin (BTC)**: `bc1q0rxcdtch7ak5rqzls5a23xlvr2fl5ll3szd40x`
 
-<img src="assets/qrcode_eth.png" alt="QR Code Ethereum" width="200"/>
+<img src="assets/qrcode_eth.jpg" alt="QR Code Ethereum" width="200"/>
 
 **Ethereum (ETH)**: `0x54B8AE351a513866B39c753d9a08B1465e3aD01C`
