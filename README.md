@@ -99,20 +99,21 @@ Desenvolvido com o protocolo Ralph de agentes autônomos.
 Se este projeto foi útil para você, considere fazer uma doação para apoiar o desenvolvimento contínuo!
 
 ### 🇧🇷 Pix
-<img src="assets/qrcode_pix.jpg" alt="QR Code Pix" width="200"/>
+<img src="assets/qrcode_pix.jpg" alt="QR Code Pix" />
 
 **Chave Pix**: `539.370.071-72`
 
 ### 🟩 Wise
-<img src="assets/qrcode_wise.png" alt="QR Code Wise" width="200"/>
+<img src="assets/qrcode_wise.jpg" alt="QR Code Wise" />
 
 [Clique aqui para doar via Wise](https://wise.com/pay/r/sxi6xirdFOblxUE)
 
 ### ₿ Criptomoedas
-<img src="assets/qrcode_btc.jpg" alt="QR Code Bitcoin" width="200"/>
+<img src="assets/qrcode_btc.png" alt="QR Code Bitcoin" />
 
 **Bitcoin (BTC)**: `bc1q0rxcdtch7ak5rqzls5a23xlvr2fl5ll3szd40x`
 
-<img src="assets/qrcode_eth.jpg" alt="QR Code Ethereum" width="200"/>
+### 🔹 Ethereum
+<img src="assets/qrcode_eth.jpg" alt="QR Code Ethereum" />
 
 **Ethereum (ETH)**: `0x54B8AE351a513866B39c753d9a08B1465e3aD01C`
